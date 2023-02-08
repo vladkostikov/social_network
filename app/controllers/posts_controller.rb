@@ -1,4 +1,10 @@
 class PostsController < ApplicationController
+  def topic
+    @topic = Topic.find_by(alias: params[:topic])
+    @posts = @topic.posts
+    render 'index'
+  end
+
   def index
     @posts = Post.all
   end
