@@ -17,7 +17,9 @@
 
     <div class="mb-3">
       <label for="body" class="form-label">Текст</label>
-      <textarea name="post[body]" value="<%= @post.body %>" class="form-control" id="body" rows="3"></textarea>
+      <textarea name="post[body]" class="form-control" id="body" rows="3">
+        <%= @post.body %>
+      </textarea>
     </div>
 
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
