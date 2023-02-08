@@ -11,7 +11,7 @@
 
       <!-- Post categories-->
       <% if topic = @post.topic %>
-      <a class="badge bg-secondary text-decoration-none link-light" href="/post/<%= topic.alias %>"><%= topic.title %></a>
+      <a class="badge bg-secondary text-decoration-none link-light" href="/posts/<%= topic.alias %>"><%= topic.title %></a>
       <% end %>
     </header>
 
