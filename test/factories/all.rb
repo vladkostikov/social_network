@@ -38,4 +38,10 @@ FactoryBot.define do
       title { 'Факты' }
     end
   end
+
+  factory :comment do
+    body {'Классный пост, спасибо!'}
+    parent_id { 0 }
+    association :post, factory: :post
+  end
 end
