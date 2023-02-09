@@ -24,9 +24,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-
-    redirect_to '/posts/'.concat(@post.id.to_s)
+    if @post.save
+      redirect_to '/posts/'.concat(@post.id.to_s)
+    else
+      @topics = Topic.all
+      render 'new'
+    end
   end
 
   def update
@@ -35,6 +38,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to '/posts/'.concat(@post.id.to_s)
     else
+      @topics = Topic.all
       render 'edit'
     end
   end
