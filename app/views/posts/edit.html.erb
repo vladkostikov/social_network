@@ -1,28 +1,4 @@
-<div class="col-md-8">
-  <form action="/posts/<%= @post.id %>" method="POST">
-    <div class="mb-3">
-      <label for="title" class="form-label">Заголовок</label>
-      <input name="post[title]" value="<%= @post.title %>" type="text" class="form-control" id="title">
-    </div>
-
-    <select name="post[topic_id]" class="form-select mb-3" aria-label="topic_id">
-      <option selected>Выберите тему</option>
-      <% @topics.each do |topic| %>
-        <option value="<%= topic.id %>"
-                <%= 'selected' if @post.topic_id == topic.id %>>
-          <%= topic.title %>
-        </option>
-      <% end %>
-    </select>
-
-    <div class="mb-3">
-      <label for="body" class="form-label">Текст</label>
-      <textarea name="post[body]" class="form-control" id="body" rows="3">
-        <%= @post.body %>
-      </textarea>
-    </div>
-
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <button type="submit" class="btn btn-primary">Сохранить</button>
-  </form>
-</div>
+<%= render partial: 'form',
+           locals: {
+             path: "/posts/#{@post.id}",
+             button_name: 'Сохранить' } %>
