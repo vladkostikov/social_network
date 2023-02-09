@@ -12,13 +12,13 @@ FactoryBot.define do
     trait :image_post do
       title { 'Заголовок поста с картинкой' }
       body { 'Картинка' }
-      association :topic, factory: [:topic, :text]
+      association :topic, factory: [:topic, :images]
     end
 
-    trait :image_post do
+    trait :fact_post do
       title { 'Заголовок поста с фактом' }
       body { 'Описание факта' }
-      association :topic, factory: [:topic, :text]
+      association :topic, factory: [:topic, :facts]
     end
   end
 

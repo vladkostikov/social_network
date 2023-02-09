@@ -1,5 +1,13 @@
 <!-- Blog entries-->
-<div class="col-lg-8">
+<div class="col-md-8">
+  <h1 class="my-4">
+    <% if @topic == nil %>
+      Все посты
+    <% else %>
+      <%= @topic.title %>
+    <% end %>
+  </h1>
+
   <% @posts.each do |post| %>
     <!-- Blog post-->
     <div class="card mb-4">
