@@ -5,8 +5,8 @@
       <%= f.text_field :title, class: 'form-control' %>
     </div>
     <div class="mb-3">
-      <%= f.label :topic_id, 'Тема', class: 'form-label' %>
-      <%= f.select :topic_id, options_from_collection_for_select(@topics, 'id', 'title'), {}, class: 'form-select mb-3' %>
+      <%= f.label :topic, 'Тема', class: 'form-label' %>
+      <%= f.select :topic, options_from_collection_for_select(@topics, 'id', 'title'), {}, class: 'form-select mb-3' %>
     </div>
     <div class="mb-3">
       <%= f.label :body, 'Текст', class: 'form-label' %>
