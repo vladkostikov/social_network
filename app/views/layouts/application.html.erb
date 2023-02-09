@@ -9,70 +9,13 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
-  <body>
-    <!-- Responsive navbar-->
-    <div class="px-3 py-2 border-bottom mb-3">
-      <header class="container d-flex flex-wrap justify-content-center">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-          <span class="fs-4">SocialNetwork</span>
-        </a>
-
-        <div class="col-md-3 text-end">
-          <button type="button" class="btn btn-outline-primary me-2">Вход</button>
-          <button type="button" class="btn btn-primary">Регистрация</button>
-        </div>
-      </header>
-    </div>
+    <%= render 'layouts/header' %>
 
     <!-- Page content-->
     <div class="container mt-5">
       <div class="row">
         <%= yield %>
-
-        <!-- Side widgets-->
-        <div class="col-lg-4">
-
-          <!-- Search widget-->
-          <div class="card mb-4">
-            <div class="card-header">Search</div>
-            <div class="card-body">
-              <div class="input-group">
-                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Categories widget-->
-          <div class="card mb-4">
-            <div class="card-header">Категории</div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="/posts/text">Тексты</a></li>
-                    <li><a href="/posts/images">Картинки</a></li>
-                    <li><a href="/posts/facts">Факты</a></li>
-                  </ul>
-                </div>
-                <div class="col-sm-6">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#!">JavaScript</a></li>
-                    <li><a href="#!">CSS</a></li>
-                    <li><a href="#!">Tutorials</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Side widget-->
-          <div class="card mb-4">
-            <div class="card-header">Side Widget</div>
-            <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-          </div>
-        </div>
+        <%= render 'layouts/sidebar' %>
       </div>
     </div>
   </body>
