@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def topic
     @topic = Topic.find_by(alias: params[:topic])
-    @posts = @topic.posts
+    @posts = @topic.posts.page params[:page]
     render 'index'
   end
 
