@@ -1,4 +1,12 @@
 <div class="col-md-8">
+  <% if @post %>
+    <% @post.errors.full_messages.each do |error| %>
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
+      </div>
+    <% end %>
+  <% end %>
+
   <%= form_for :post, url: '/posts', method: 'post' do |f| %>
     <div class="mb-3">
       <%= f.label :title, 'Заголовок', class: 'form-label' %>
