@@ -7,7 +7,7 @@
         <div class="small text-muted"><%= post.created_at %></div>
         <h2 class="card-title"><%= post.title %></h2>
         <p class="card-text"><%= post.body.length <= 2000 ? post.body : post.body[..2000] %></p>
-        <a class="btn btn-primary" href="/posts/<%= post.id %>">Читать дальше →</a>
+        <a class="btn btn-primary" href="<%= post_path(post) %>">Читать дальше →</a>
       </div>
     </div>
   <% end %>

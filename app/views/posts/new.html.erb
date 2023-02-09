@@ -1,4 +1,5 @@
 <%= render partial: 'form',
            locals: {
-             path: '/posts',
-             button_name: 'Сохранить' } %>
+             path: posts_path,
+             button_name: 'Сохранить',
+             method_name: "POST"} %>
