@@ -1,0 +1,13 @@
+<%= form_with model: model.comments.new  do |form| %>
+  <form>
+    <div class="mb-2 mt-2">
+      <%= form.text_area :body, rows: "3", cols: '100', class: 'form-control',
+                         placeholder: 'Введите текст комментария' %>
+    </div>
+    <div class="mb-4">
+      <%= form.hidden_field :post_id, value: @post.id %>
+      <%= form.hidden_field :parent_id, value: parent_id ||= 0 %>
+      <%= form.submit 'Добавить комментарий', class: 'btn btn-outline-primary' %>
+    </div>
+  </form>
+<% end %>

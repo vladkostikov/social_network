@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'posts/new', to: 'posts#new'
   get 'posts/:topic', to: 'posts#topic'
   resources :posts, except: :destroy
+  resource :comments, only: [:create]
 end

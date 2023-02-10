@@ -27,38 +27,43 @@
     <div class="card bg-light">
       <div class="card-body">
         <!-- Comment form-->
-        <form class="mb-4">
-          <textarea class="form-control"
-                    rows="3"
-                    placeholder="Join the discussion and leave a comment!">
-          </textarea></form>
+        <%= render partial: 'comments/form',
+                   locals: { model: @post } %>
 
         <% @comments.each do |comment| %>
         <!-- Comment -->
-          <div class="d-flex mb-4">
+          <div class="d-flex mb-2">
             <!-- Parent comment-->
-            <div class="flex-shrink-0">
+            <div class="flex-shrink-0" id="comment_<%= comment.id %>">
               <img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
             </div>
 
             <div class="ms-3">
               <div class="fw-bold">Commenter Name</div>
-                <%= comment.body %>
+              <%= comment.body %>
               <% if @replies.key?(comment.id) %>
-                <% @replies[comment.id].each do |reply| %>
-                  <!-- Child comment -->
-                  <div class="d-flex mt-4">
-                    <div class="flex-shrink-0">
-                      <img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="...">
-                    </div>
-
-                    <div class="ms-3">
-                      <div class="fw-bold">Commenter Name</div>
-                      <%= reply.body %>
-                    </div>
+              <% @replies[comment.id].each do |reply| %>
+                <!-- Child comment -->
+                <div class="d-flex mt-4" id="comment_<%= reply.id %>">
+                  <div class="flex-shrink-0">
+                    <img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="...">
                   </div>
-                <% end %>
+
+                  <div class="ms-3">
+                    <div class="fw-bold">Commenter Name</div>
+                    <div><%= reply.body %></div>
+                  </div>
+                </div>
               <% end %>
+            <% end %>
+              <div>
+                <a class onclick="reply_form_<%= comment.id %>.style.display='block'"
+                   style="cursor: pointer">Ответить</a>
+
+                <div id="reply_form_<%= comment.id %>" style="display: none">
+                  <%= render partial: 'comments/form', locals: { model: @post, parent_id: comment.id } %>
+                </div>
+              </div>
             </div>
           </div>
         <% end %>
