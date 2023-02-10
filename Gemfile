@@ -76,3 +76,4 @@ group :test do
 end
 
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
+gem 'devise', '~> 4.8', '>= 4.8.1'
